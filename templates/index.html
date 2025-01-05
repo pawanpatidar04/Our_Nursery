@@ -1,0 +1,366 @@
+{% extends "Base.html" %}
+{% block title %}Home{% endblock title %}
+{% block contact %}
+
+{% endblock contact %}
+{% block body %}
+
+<!-- home section starts  -->
+
+    <section class="home" id="home">
+
+        <div class="swiper-container home-slider">
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}} alert-dismissible fode show" 
+          role="alert">
+          <strong>{{message}}</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"
+          aria-label="Close"></button>
+          </div>
+          {% endfor %}
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="box" style="background: url(/static/images/slider1.jpg);">
+                        <div class="content">
+                            <span>upto 75% off</span>
+                            <h3>plant big sale special offer</h3>
+                            {% comment %} <a href="/static/#" class="btn">shop now</a> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    {% comment %} <div class="box" style="background: url(/static/images/slider2.jpg);">
+                        <div class="content">
+                            <span>upto 45% off</span>
+                            <h3>plant make people happy</h3>
+                            {% comment %} <a href="/static/#" class="btn">shop now</a> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    {% comment %} <div class="box" style="background: url(/static/images/slider3.jpg);">
+                        <div class="content">
+                            <span>upto 65% off</span>
+                            <h3>decorate your home now</h3>
+                            {% comment %} <a href="/static/#" class="btn">shop now</a> {% endcomment %}
+                        </div>
+                    </div> 
+                </div>
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+
+        </div>
+
+    </section>
+
+    <!-- home section ends -->
+
+
+
+
+  
+
+    <!-- banner section starts  -->
+
+    <section class="banner-container">
+
+        <div class="banner">
+            <img src="/static/images/banner1.jpg" alt="">
+            <div class="content">
+                <span>new arrivals</span>
+                <h3>house plants</h3>
+                <a href="{% url 'categoy_products' category='flower' %}" class="btn">shop now</a>
+            </div>
+        </div>
+        <div class="banner">
+            <img src="/static/images/banner2.jpg" alt="">
+            <div class="content">
+                <span>new arrivals</span>
+                <h3>office plants</h3>
+                <a href="{% url 'categoy_products' category='flower' %}" class="btn">shop now</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- banner section ends -->
+
+    <!-- category section starts  -->
+
+    <section class="category" id="category">
+
+        <h1 class="heading"> shop by category </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="/static/images\vegetabl.png" alt="">
+                <div class="content">
+                    <h3>Vegetable plants</h3>
+                    <a href="{% url 'categoy_products' category='vegetable' %}" class="btn">shop now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="/static/images\frutes_2.png" alt="">
+                <div class="content">
+                    <h3>Fruits plants</h3>
+                    <a href="{% url 'categoy_products' category='fruit' %}" class="btn">shop now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="/static/images\flowers.png" alt="">
+                <div class="content">
+                    <h3>Flowering plants</h3>
+                    <a href="{% url 'categoy_products' category='flower' %}" class="btn">shop now</a>
+                </div>
+                
+            </div>
+            <div class="box">
+                <img src="/static/images\herbs.png" alt="">
+                <div class="content">
+                    <h3>Medicinal plants</h3>
+                    <a href="{% url 'categoy_products' category='MedicinalPlants' %}" class="btn">shop now</a>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="box-container">
+
+
+        </div>
+
+    </section>
+
+    <!-- category section ends -->
+    <!-- product section starts  -->
+
+    <section class="product" id="product">
+
+        <h1 class="heading"> new products </h1>
+
+        <div class="box-container">
+            {% for n in Product %}
+                <div class="box">
+                    <img src="{{n.image}}" alt="">
+                    <h3>{{n.product_name}}</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <form action="addcart/" method="POST">
+                        {% csrf_token %}
+                        <div class="quantity">
+                            <span> quantity : </span>
+                            <input name="quntity" type="number" min="1" max="100" value="1">
+                            <input name="id" type="number" value='{{ n.id }}' hidden>
+                        </div>
+                        <div class="price">₹{{n.price}} <span>₹88.20</span></div>
+                        <button class="btn" type="submit">add to cart</button>
+                    </form>
+                </div>
+           {% endfor %}
+
+        
+        
+        </div>
+
+    </section>
+
+    <!-- product section ends -->
+    <!-- services section starts -->
+
+<div class="container">
+
+        <h1 class="heading">our services</h1>
+
+        <div class="box-container" id="services">
+
+            <div class="box">
+                <img src="/static\images\af73ea3b-381e-406f-bf1f-415432158bc8.jpg" alt="">
+                <h3>Plant Nursery</h3>
+                <p id="services-content">We have a very good collection of indoor plants, decorative plants, flowering plants, palms, ferns, seasonal and medicinal plants. We also stock all type of flowering and fruit tree saplings of all..</p>
+                <a href="/read_services#serve-1" class="btn">read more</a>
+
+            </div>
+
+            <div class="box">
+                <img src="/static\images\a372b012-464e-4ccc-9e9c-b155e747d227.jpg" alt="">
+                <h3>Garden Maintenance Services</h3>
+                <p id="services-content">We have a team of highly skilled and experienced gardeners who take utmost care of all the plants and trees at the premises of our clients.... </p>
+                <a href="/read_services#serve-2" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static\images\966d3022-8025-41f2-bd32-db06251c6c16.jpg" alt="">
+                <h3>Industrial Garden Maintenance Services</h3>
+                <p id="services-content">This nursery is known in the business as a supplier of best quality plants at most competitive prices. Now there is no need..</p>
+                <a href="/read_services#serve-3" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static\images\68958861-cc5e-4a5f-8102-8a1634fc00f7.jpg" alt="">
+                <h3>Hard Landscapes And Rock Arrangements</h3>
+                <p id="services-content">We at Reliable Services understand that hard landscape is a key part of the structure of a garden. Apart from being functional......</p>
+                <a href="/read_services#serve-4" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static\images\f9201dd8-c7c1-4a3d-bc0b-e18651a9d006.jpg" alt="">
+                <h3>Commercial Garden Maintenance Services</h3>
+                <p id="services-content">Reliable Services offers gardening and landscaping maintenance services In Indore to our commercial clients. ..</p>
+                <a href="/read_services#serve-5" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static\images\wedding.webp" alt="">
+                <h3>Wedding decoration </h3>
+                <p id="services-content">We've discovered that there are countless alternatives when it comes to floral arrangements! There are simply too many things that can be decorated with flowers....</p>
+                <a href="/read_services#serve-6" class="btn">read more</a>
+            </div>
+        
+        </div>
+
+    </div>
+<!-- services section end -->
+    <!-- deal section starts  -->
+
+    <section class="deal" id="deal">
+
+        <h1 class="heading"> deal of the day </h1>
+
+        <div class="row">
+
+            <div class="content">
+                <h3 class="title">don't miss the deal</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae rem eligendi repudiandae
+                    pariatur. Aut, esse molestias laborum sunt reprehenderit repellat officiis aspernatur consequatur
+                    nemo! Veritatis, ex architecto! Eligendi, iste nulla.</p>
+                <div class="count-down">
+                    <div class="box">
+                        <h3 id="day">00</h3>
+                        <span>day</span>
+                    </div>
+                    <div class="box">
+                        <h3 id="hour">00</h3>
+                        <span>hour</span>
+                    </div>
+                    <div class="box">
+                        <h3 id="minute">00</h3>
+                        <span>minute</span>
+                    </div>
+                    <div class="box">
+                        <h3 id="second">00</h3>
+                        <span>second</span>
+                    </div>
+                </div>
+                <a href="{% url 'categoy_products' category='flower' %}" class="btn">check out deal</a>
+            </div>
+
+            <div class="image">
+                <img src="/static/images/deal-img.jpg" alt="">
+            </div>
+
+        </div>
+
+    </section>
+
+    
+
+    
+<!-- .icons section starts  -->
+
+    <section class="icons-container">
+
+        <div class="icon">
+            <img src="/static/images/icon1.png" alt="">
+            <div class="content">
+                <h3>free shipping</h3>
+                <p>Free shipping on order</p>
+            </div>
+        </div>
+        <div class="icon">
+            <img src="/static/images/icon2.png" alt="">
+            <div class="content">
+                <h3>100% Money Back</h3>
+                <p>You’ve 30 days to Return</p>
+            </div>
+        </div>
+        <div class="icon">
+            <img src="/static/images/icon3.png" alt="">
+            <div class="content">
+                <h3>Payment Secure</h3>
+                <p>100% secure payment</p>
+            </div>
+        </div>
+        <div class="icon">
+            <img src="/static/images/icon4.png" alt="">
+            <div class="content">
+                <h3>Support 24/7</h3>
+                <p>Contact us anytime</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- .icons section ends -->
+    <!-- contact section starts  -->
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading">contact</h1>
+               {% for message in messages %}
+          <div class="alert alert-{{message.tags}} alert-dismissible fode show" 
+          role="alert">
+          <strong>{{message}}</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"
+          aria-label="Close"></button>
+          </div>
+          {% endfor %}
+
+        <div class="row">
+
+            <iframe class="map"
+                src="https://maps.google.com/maps?q=shri Vaishnav polytechnic college&t=k&z=10&ie=UTF8&iwloc=&output=embed"
+                allowfullscreen="" loading="lazy"></iframe>
+
+            <form action="/contact" method="post">
+                {% csrf_token %}
+                <div class="inputBox">
+                    <input  type="text" name="name" id="name" required >
+                    <label>name</label>
+                    
+                </div>
+                <div class="inputBox">
+                    <input type="email" name="email" id="email" required>
+                    <label>email</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="number" id="number" required>
+                    <label>number</label>
+                </div>
+                <div class="inputBox">
+                    <textarea required name="message" id="message" cols="30" rows="10"></textarea>
+                    <label>message</label>
+                </div>
+
+                <input type="submit" value="send message" class="btn">
+
+            </form>
+
+        </div>
+
+    </section>
+
+<script> src= "/static/js/script.js" </script>
+
+    <!-- contact section ends -->
+{% endblock body %}
+

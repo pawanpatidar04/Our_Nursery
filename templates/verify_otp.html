@@ -1,0 +1,9 @@
+<form action="confirm_otp/" method="POST">
+    {% csrf_token %}
+     <center> <h1>verify email using OTP</h1></center>
+		<label for="product-name">Enter OTP:</label>
+		<input type="text" id="product-name" name="otp" required>
+
+		
+		<center><button class="btn btn-primary" type="submit">Submit</button></center>
+	</form>

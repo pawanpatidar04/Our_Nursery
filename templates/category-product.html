@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our-nursery</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- boot5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+
+</head>
+
+<body>
+
+
+    <!-- header section starts  -->
+
+    <header>
+
+
+
+        <div class="header-3" style="background-color: rgb(22, 21, 21);">
+
+            <div id="menu-bar" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <a href="/#home">home</a>
+                <a href="/#category">category</a>
+                <a href="/#product">product</a>
+                <a href="/#services">Services</a>
+                <a href="/#deal">deal</a>
+                <a href="/#contact">contact</a>
+                <ul>
+
+            </nav>
+
+
+
+            {% comment %} <div class="info">
+                <a href="login.html" class="sign">Log-in</a>
+                <a href="signup.html" class="sign">Sign-up</a>
+            </div> {% endcomment %}
+            {% if request.session.email %}
+            <div class="info">
+                <a href="/logout" class="sign">logout</a>
+                {% if request.session.role == 1 %}
+                    <a href="/dashboard" class="sign">Dashboard</a>
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="info">
+                <a href="/signup" class="sign">Signup</a>
+                <a href="/login" class="sign">Login</a>
+            </div>
+        {% endif %}
+
+        </div>
+
+    </header>
+  
+    <section class="product" id="product">
+        <div class="box-container">
+             {% for n in Product %}
+                <div class="box">
+                    <img src="{{ n.image }}" alt="">
+                    <h3>{{n.product_name}}</h3>
+                   
+                    <form action="addcart/" method="POST">
+                        {% csrf_token %}
+                        <div class="quantity">
+                            <span> quantity : </span>
+                            <input name="quntity" type="number" min="1" max="100" value="1">
+                            <input name="id" type="number" value='{{ n.id }}' hidden>
+                        </div>
+                        <div class="price">₹{{n.price}}<span>200</span></div>
+                         <h2>{{n.desc}}!</h2>
+                       <center><button class="btn" type="submit">add to cart</button></center>
+                    </form>
+                </div>
+            {% endfor %}
+
+           
+        </div>
+
+    </section>
+
+</body>
+
+</html>

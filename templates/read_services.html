@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our-nursery</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- boot5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    
+
+    <style>
+    #book-btn{
+  color: white ;
+}
+
+    </style>
+
+</head>
+
+<body>
+    <!-- header section starts  -->
+    <header>
+        <div class="header-3" style="background-color: rgb(22, 21, 21); ">
+
+            <div id="menu-bar" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <a href="/#home">home</a>
+                <a href="/#category">category</a>
+                <a href="/#product">product</a>
+                <a href="/#services">Services</a>
+                <a href="/#deal">deal</a>
+                <a href="/#contact">contact</a>
+                <ul>
+
+            </nav>
+                 {% if request.session.email %}
+                <div class="info">
+                    <a href="/logout" class="sign">logout</a>
+                    {% if request.session.role == 1 %}
+                        <a href="/dashboard" class="sign">Dashboard</a>
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="info">
+                    <a href="/signup" class="sign">Signup</a>
+                    <a href="/login" class="sign">Login</a>
+                </div>
+            {% endif %}
+
+        </div>
+
+    </header>
+    <section class="main">
+    <section class="serve" id="serv-1">
+        <!-- first services -->
+        <section class="plant-nursery">
+            <div class="service-1">
+                <div class="img-services"><img src="\static\images\af73ea3b-381e-406f-bf1f-415432158bc8.jpg" alt=""></div>
+            </div>
+            <div class="content">
+                <h1>Plant nursery</h1>
+                <p>We have developed a beautiful Nursery in Navi Mumbai to cater to our clients in this region. Aptly named TheGreenhills Nursery, due to its scenic location adjoining the verdant Parsik Hills, it is located in CBD Belapur, just opposite the PARK HOTEL, in the heart of Navi Mumbai. It is spread over an area of one acre adjacent to the sion-panvel expressway. TheGreenhills Nursery has a large area, which helps us to stock a wide variety of plants at the same location.
+                We have a very good collection of indoor plants, decorative plants, flowering plants, palms, ferns, seasonal and medicinal plants. We also stock all type of flowering and fruit tree saplings of all sizes. This nursery is known in the business as a supplier of best quality plants at most competitive prices. TheGreenhills Nursery is a one stop shop for all types of pots, planters, pebbles, fountains, garden furniture and organic fertilizers etc.
+                </p>
+                <button class="btn btn-primary"><a href="/book_now" id="book-btn">yes I am interested</a></button>
+
+            </div>
+        </section>
+        <!-- end -->
+    </section>
+
+
+
+    <section class="serve" id="serve-2">
+        <!-- first services -->
+        <section class="plant-nursery">
+            <div class="service-1">
+                <div class="img-services"><img src="\static\images\a372b012-464e-4ccc-9e9c-b155e747d227.jpg" alt=""></div>
+            </div>
+            <div class="content">
+                <h1>Garden Maintenance Services</h1>
+                <p>The experienced team at Reliable Services In Navi Mumbai is dedicated to provide customized, creative and attentive service to all our clients. To guarantee the highest level of landscaping services, we have regular onsite inspections all corrective actions are undertaken immediately.
+                    We have a team of highly skilled and experienced gardeners who take utmost care of all the plants and trees at the premises of our clients. Our gardeners take timely action to ensure that the garden is clean green and beautiful at all times. The services we offer are individually tailored and extend well beyond traditional landscaping maintenance requirements.             
+                      We offer the following garden maintenance services:
+                
+                </p>
+                <button class="btn btn-primary"><a href="/book_now" id="book-btn">yes I am interested</a></button>
+
+            </div>
+        </section>
+
+        <!-- end -->
+    </section>  
+    <section class="serve" id="serve-3">
+        <!-- first services -->
+        <section class="plant-nursery">
+            <div class="service-1">
+                <div class="img-services"><img src="\static\images\966d3022-8025-41f2-bd32-db06251c6c16.jpg" alt=""></div>
+            </div>
+            <div class="content">
+                <h1>Industrial Garden Maintenance Services</h1>
+                <p>The greenhill nursery is located in the heart of navi Mumbai in picturesque green surroundings of parsik hills, navi mumbai. It is spread over an area of one acre adjacent to the sion-panvel expressway. The greenhill nursery has a large premise, which helps us to stock a large variety of plants at the same location. We have a vast collection of indoor plants, decorative plants, flowering plants, palms, ferns, seasonal and medicinal plants. We also stock all type of flowering and fruit tree saplings of all sizes.
+                This nursery is known in the business as a supplier of best quality plants at most competitive prices. Now there is no need for clients to travel all the way to pune & surrounding areas for their gardening needs. Everything they desire is available at reasonable rates here in navi mumbai at the greenhill nursery. The greenhill nursery is a one stop shop for all types of pots, planters, pebbles, fountains, garden furniture and organic fertilizers etc.
+                </p>
+                <button class="btn btn-primary"><a href="/book_now" id="book-btn">yes I am interested</a></button>
+
+            </div>
+        </section>
+        <!-- end -->
+    </section> 
+
+
+     <section class="serve" id="serve-4">
+        <!-- first services -->
+        <section class="plant-nursery">
+            <div class="service-1">
+                <div class="img-services"><img src="\static\images\68958861-cc5e-4a5f-8102-8a1634fc00f7.jpg" alt=""></div>
+            </div>
+            <div class="content">
+                <h1>Hard Landscapes And Rock Arrangements</h1>
+                <p>Hard landscaping includes ground works, drainage, patios, driveways, block paving, decking, raised / lowered beds, fencing, etc - in fact, anything that usually involves civil construction.
+                We at Reliable Services understand that hard landscape is a key part of the structure of a garden. Apart from being functional, hard landscape should be attractive and should be compatible with the adjoining buildings as the rest of the Garden.
+                
+                </p>
+                <button class="btn btn-primary"><a href="/book_now" id="book-btn">yes I am interested</a></button>
+
+            </div>
+        </section>
+        <!-- end -->
+    </section> 
+     <section class="serve" id="serve-5">
+        <!-- first services -->
+        <section class="plant-nursery">
+            <div class="service-1">
+                <div class="img-services"><img src="\static\images\f9201dd8-c7c1-4a3d-bc0b-e18651a9d006.jpg" alt=""></div>
+            </div>
+            <div class="content">
+                <h1>Commercial Garden Maintenance Services</h1>
+                <p>Reliable Services offers gardening and landscaping maintenance services In Navi Mumbai to our commercial clients. We are known in the business for our reliability, technical knowledge, prompt service and cost effectiveness.
+                We offer the following commercial garden maintenance services:
+                     Lawn mowing
+                     Garden maintenance
+                     Application of fertilizers to Lawns and Garden.
+                     Regular check for pests, fungus etc. and prompt remedial action
+                     Regular site inspections
+                     Monthly site reports
+                     Replanting advise
+                     Indoor plant maintenance
+                </p>
+                <button class="btn btn-primary"><a href="/book_now" id="book-btn">yes I am interested</a></button>
+ 
+
+            </div>
+        </section>
+        <!-- end -->
+    </section>  
+    <section class="serve" id="serve-6">
+        <!-- first services -->
+       <section class="plant-nursery">
+            <div class="service-1">
+                <div class="img-services"><img src="/static\images\wedding.webp" alt=""></div>
+            </div>
+            <div class="content">
+                <h1>Wedding decoration</h1>
+                <p>We've discovered that there are countless alternatives when it comes to floral arrangements! There are simply too many things that can be decorated with flowers. There is no wrong way to do it because flowers always make your wedding decor look better. However, choosing your blooms can frequently be stressful and confusing. We are fully aware of that! We can understand how selecting blooms could cause you tension before your special day.
+                </p>
+                <button class="btn btn-primary"><a href="/book_now" id="book-btn">yes I am interested</a></button>
+           
+            </div>
+        </section>
+        <!-- end -->
+    </section>
+    </section>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
